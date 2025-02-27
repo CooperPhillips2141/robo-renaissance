@@ -34,7 +34,7 @@ def sound_mix(audio_files, percentages):
     # Process each audio file
     for i in range(len(audio_files)):
         # Load the audio file
-        audio = AudioSegment.from_file(audio_files[i])
+        audio = AudioSegment.from_file("Audio_files/" + emotions[i] + ".mp3")
         # Adjust volume based on percentage
         
         if percentages[i] != 0:
@@ -56,10 +56,10 @@ def sound_mix(audio_files, percentages):
 # Example percentage array but make sure it sums to 1
 percentages = np.array([0.1, 0.2, 0.0, 0.0, 0.1, 0.6, 0.0])
 # Example audio file name/ directory, make sure there are 7 total
-audio_files = np.array(["Audio_files/Drums.mp3", "Audio_files/Electric_Bass.mp3", "Audio_files/Electric_Guitar.mp3", "Audio_files/Instrumental.mp3", "Audio_files/Piano.mp3", "Audio_files/Violin.mp3", "Audio_files/Vocal.mp3"])
+emotions = np.array(["Angry", "Bad", "Disgusted", "Fearful", "Happy", "Sad", "Surprised"])
 
 p = np.random.permutation(len(percentages))  # Generate a shuffledx array
-percentages, audio_files = percentages[p], audio_files[p]  # Apply the shuffled index to both lists (Note. This randomization may be done in a number of different ways depending on the final main code.)
+percentages, emotions = percentages[p], audio_files[p]  # Apply the shuffled index to both lists (Note. This randomization may be done in a number of different ways depending on the final main code.)
 
 # run function 
-sound_mix(audio_files, percentages)
+sound_mix(emotions, percentages)
