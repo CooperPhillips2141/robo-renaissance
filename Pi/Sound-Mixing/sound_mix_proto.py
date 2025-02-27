@@ -59,7 +59,7 @@ percentages = np.array([0.1, 0.2, 0.0, 0.0, 0.1, 0.6, 0.0])
 emotions = np.array(["Angry", "Bad", "Disgusted", "Fearful", "Happy", "Sad", "Surprised"])
 
 p = np.random.permutation(len(percentages))  # Generate a shuffledx array
-percentages, emotions = percentages[p], audio_files[p]  # Apply the shuffled index to both lists (Note. This randomization may be done in a number of different ways depending on the final main code.)
+percentages, emotions = percentages[p], emotions[p]  # Apply the shuffled index to both lists (Note. This randomization may be done in a number of different ways depending on the final main code.)
 
 # run function 
 sound_mix(emotions, percentages)
