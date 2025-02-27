@@ -40,11 +40,9 @@ def sound_mix(audio_files, percentages):
         if percentages[i] != 0:
              volume_adjustment = (1 - percentages[i]) * 12  # Convert to dBFS adjustment
              adjusted_audio = audio - (12 - volume_adjustment)
-        else:
-             adjusted_audio = audio - 100
+             # Mix into the combined audio
+             mixed_audio = mixed_audio + adjusted_audio
         
-        # Mix into the combined audio
-        mixed_audio = mixed_audio + adjusted_audio
     
     print("Playing Audio")
     mixed_audio.export("mixed_output.wav", format="wav")
